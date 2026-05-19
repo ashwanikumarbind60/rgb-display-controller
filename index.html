@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
 
-<title>RGB Display Controller Pro</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0">
+
+<title>NovaDownloader</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -20,430 +24,543 @@ font-family:'Poppins',sans-serif;
 
 body{
 
-height:100vh;
-overflow:hidden;
-
-background:linear-gradient(
+background:
+linear-gradient(
 135deg,
-#ff0000,
-#0000ff
+#0f0f0f,
+#161616,
+#1e1e1e
 );
 
-display:flex;
-justify-content:center;
-align-items:center;
+min-height:100vh;
+color:white;
 
-transition:0.3s;
+overflow-x:hidden;
+
 }
 
-.container{
+header{
 
-width:95%;
-max-width:420px;
+padding:20px;
 
-background:rgba(255,255,255,0.08);
-
-backdrop-filter:blur(18px);
-
-border:1px solid rgba(255,255,255,0.15);
-
-border-radius:30px;
-
-padding:25px;
-
-box-shadow:
-0 0 40px rgba(0,0,0,0.5);
+display:flex;
+justify-content:space-between;
+align-items:center;
 
 }
 
 .logo{
 
-text-align:center;
-color:white;
-font-size:34px;
+font-size:28px;
 font-weight:700;
-margin-bottom:5px;
+
+background:
+linear-gradient(
+90deg,
+#8b5cf6,
+#ec4899
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 
 }
 
-.subtitle{
-
-text-align:center;
-color:#dddddd;
-margin-bottom:25px;
-
-}
-
-.color-preview{
-
-height:130px;
-border-radius:25px;
-
-background:rgb(255,0,0);
-
-box-shadow:
-0 0 30px rgba(255,255,255,0.2);
-
-margin-bottom:25px;
-
-transition:0.3s;
-}
-
-.control{
-
-margin-bottom:18px;
-
-}
-
-.label{
+.nav{
 
 display:flex;
-justify-content:space-between;
+gap:15px;
 
+}
+
+.nav a{
+
+text-decoration:none;
 color:white;
-margin-bottom:8px;
+
 font-size:14px;
 
 }
 
-input[type=range]{
+.hero{
 
-width:100%;
-height:10px;
-border-radius:20px;
-appearance:none;
+padding:50px 20px;
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:42px;
+margin-bottom:15px;
+
+line-height:1.2;
+
+}
+
+.gradient{
+
+background:
+linear-gradient(
+90deg,
+#8b5cf6,
+#ec4899
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+}
+
+.hero p{
+
+color:#bbbbbb;
+margin-bottom:35px;
+
+font-size:16px;
+
+}
+
+.search-box{
+
+max-width:700px;
+margin:auto;
+
+background:
+rgba(255,255,255,0.06);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:blur(12px);
+
+padding:10px;
+
+border-radius:25px;
+
+display:flex;
+gap:10px;
+
+}
+
+.search-box input{
+
+flex:1;
+
+background:transparent;
+
+border:none;
 outline:none;
-
-background:rgba(255,255,255,0.15);
-
-}
-
-input[type=range]::-webkit-slider-thumb{
-
-appearance:none;
-
-width:22px;
-height:22px;
-
-border-radius:50%;
-
-background:white;
-
-cursor:pointer;
-
-}
-
-.buttons{
-
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
-
-margin-top:25px;
-
-}
-
-button{
 
 padding:15px;
 
+color:white;
+font-size:16px;
+
+}
+
+.search-box button{
+
+background:
+linear-gradient(
+90deg,
+#8b5cf6,
+#ec4899
+);
+
 border:none;
+
+padding:15px 25px;
+
 border-radius:18px;
 
-font-size:15px;
+color:white;
+
+font-size:16px;
 font-weight:600;
 
 cursor:pointer;
 
-transition:0.3s;
+}
+
+.result{
+
+display:none;
+
+max-width:900px;
+
+margin:50px auto;
+
+padding:20px;
+
+}
+
+.card{
+
+background:
+rgba(255,255,255,0.06);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+border-radius:30px;
+
+padding:20px;
+
+display:flex;
+gap:20px;
+
+flex-wrap:wrap;
+
+backdrop-filter:blur(15px);
+
+}
+
+.video-preview{
+
+flex:1;
+min-width:250px;
+
+}
+
+.video-preview video{
+
+width:100%;
+
+border-radius:20px;
+
+}
+
+.download-section{
+
+flex:1;
+display:flex;
+
+flex-direction:column;
+justify-content:center;
+
+gap:15px;
+
+}
+
+.download-btn{
+
+padding:15px;
+
+border:none;
+
+border-radius:18px;
+
+font-size:16px;
+font-weight:600;
+
+cursor:pointer;
 
 color:white;
 
-background:rgba(255,255,255,0.12);
+background:
+linear-gradient(
+90deg,
+#8b5cf6,
+#ec4899
+);
+
+}
+
+.features{
+
+padding:80px 20px;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:20px;
+
+max-width:1200px;
+margin:auto;
+
+}
+
+.feature-card{
+
+background:
+rgba(255,255,255,0.05);
+
+padding:30px;
+
+border-radius:25px;
+
+border:
+1px solid rgba(255,255,255,0.08);
 
 backdrop-filter:blur(10px);
 
-}
-
-button:hover{
-
-transform:scale(1.05);
-
-background:rgba(255,255,255,0.2);
+transition:0.3s;
 
 }
 
-.hex{
+.feature-card:hover{
 
-text-align:center;
-margin-top:22px;
+transform:translateY(-8px);
+
+}
+
+.feature-card h2{
+
+margin-bottom:15px;
 
 font-size:24px;
-font-weight:700;
-
-color:white;
-
-letter-spacing:2px;
 
 }
 
-.footer{
+.feature-card p{
 
-margin-top:25px;
+color:#bbbbbb;
+line-height:1.7;
+
+}
+
+footer{
+
+padding:40px 20px;
 
 text-align:center;
 
-color:#cccccc;
-font-size:12px;
+color:#888888;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:32px;
+
+}
+
+.search-box{
+
+flex-direction:column;
+
+}
+
+.card{
+
+flex-direction:column;
+
+}
 
 }
 
 </style>
+
 </head>
 
 <body>
 
-<div class="container">
+<header>
 
 <div class="logo">
-RGB PRO
+NovaDownloader
 </div>
 
-<div class="subtitle">
-Professional RGB Display Controller
-</div>
+<div class="nav">
 
-<div class="color-preview"
-id="preview">
-</div>
+<a href="#">
+Home
+</a>
 
-<div class="control">
+<a href="#">
+Features
+</a>
 
-<div class="label">
-<span>RED</span>
-<span id="redValue">255</span>
-</div>
-
-<input type="range"
-id="red"
-min="0"
-max="255"
-value="255">
+<a href="#">
+About
+</a>
 
 </div>
 
-<div class="control">
+</header>
 
-<div class="label">
-<span>GREEN</span>
-<span id="greenValue">0</span>
-</div>
+<section class="hero">
 
-<input type="range"
-id="green"
-min="0"
-max="255"
-value="0">
+<h1>
 
-</div>
+Download Instagram
+<span class="gradient">
+Reels & Videos
+</span>
 
-<div class="control">
+Instantly
 
-<div class="label">
-<span>BLUE</span>
-<span id="blueValue">0</span>
-</div>
+</h1>
 
-<input type="range"
-id="blue"
-min="0"
-max="255"
-value="0">
+<p>
 
-</div>
+Fast • HD Quality • Mobile Friendly
 
-<div class="control">
+</p>
 
-<div class="label">
-<span>BRIGHTNESS</span>
-<span id="brightnessValue">100%</span>
-</div>
+<div class="search-box">
 
-<input type="range"
-id="brightness"
-min="10"
-max="100"
-value="100">
+<input
+type="text"
+placeholder="Paste Instagram Link Here..."
+id="urlInput">
 
-</div>
-
-<div class="buttons">
-
-<button onclick="randomColor()">
-Random
-</button>
-
-<button onclick="startBlink()">
-Blink
-</button>
-
-<button onclick="gradientMode()">
-Gradient
-</button>
-
-<button onclick="fullscreenMode()">
-Fullscreen
+<button onclick="showResult()">
+Download
 </button>
 
 </div>
 
-<div class="hex"
-id="hexCode">
-#FF0000
+</section>
+
+<section class="result"
+id="result">
+
+<div class="card">
+
+<div class="video-preview">
+
+<video controls>
+
+<source src=
+"https://www.w3schools.com/html/mov_bbb.mp4"
+type="video/mp4">
+
+</video>
+
 </div>
 
-<div class="footer">
-Created by TechBinders
+<div class="download-section">
+
+<button class="download-btn">
+Download Video
+</button>
+
+<button class="download-btn">
+Download Audio
+</button>
+
+<button class="download-btn">
+Download Thumbnail
+</button>
+
 </div>
 
 </div>
+
+</section>
+
+<section class="features">
+
+<div class="feature-card">
+
+<h2>
+⚡ Ultra Fast
+</h2>
+
+<p>
+
+Lightning fast download system
+with modern optimization.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<h2>
+🎬 HD Quality
+</h2>
+
+<p>
+
+Download reels and videos
+in original high quality.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<h2>
+📱 Mobile Friendly
+</h2>
+
+<p>
+
+Perfect responsive experience
+for all mobile devices.
+
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<h2>
+🔒 Secure
+</h2>
+
+<p>
+
+No login required.
+Safe and secure downloading.
+
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 NovaDownloader
+All Rights Reserved
+
+</footer>
 
 <script>
 
-const red =
-document.getElementById("red");
+function showResult(){
 
-const green =
-document.getElementById("green");
+const input =
+document.getElementById(
+"urlInput").value;
 
-const blue =
-document.getElementById("blue");
+if(input === ""){
 
-const brightness =
-document.getElementById("brightness");
+alert(
+"Please paste Instagram link"
+);
 
-const preview =
-document.getElementById("preview");
+return;
 
-const hexCode =
-document.getElementById("hexCode");
-
-let blinking = false;
-
-function updateColor(){
-
-const r = red.value;
-const g = green.value;
-const b = blue.value;
+}
 
 document.getElementById(
-"redValue").innerText = r;
+"result").style.display =
+"block";
 
+window.scrollTo({
+
+top:
 document.getElementById(
-"greenValue").innerText = g;
+"result").offsetTop,
 
-document.getElementById(
-"blueValue").innerText = b;
+behavior:"smooth"
 
-document.getElementById(
-"brightnessValue").innerText =
-brightness.value + "%";
-
-const rgb =
-`rgb(${r},${g},${b})`;
-
-preview.style.background = rgb;
-
-document.body.style.background =
-`linear-gradient(
-135deg,
-rgba(${r},${g},${b},0.9),
-black
-)`;
-
-document.body.style.filter =
-`brightness(${brightness.value}%)`;
-
-const hex =
-"#" +
-((1 << 24)
-+
-(parseInt(r) << 16)
-+
-(parseInt(g) << 8)
-+
-parseInt(b))
-.toString(16)
-.slice(1)
-.toUpperCase();
-
-hexCode.innerText = hex;
+});
 
 }
-
-red.addEventListener(
-"input",updateColor);
-
-green.addEventListener(
-"input",updateColor);
-
-blue.addEventListener(
-"input",updateColor);
-
-brightness.addEventListener(
-"input",updateColor);
-
-function randomColor(){
-
-red.value =
-Math.floor(Math.random()*256);
-
-green.value =
-Math.floor(Math.random()*256);
-
-blue.value =
-Math.floor(Math.random()*256);
-
-updateColor();
-
-}
-
-function startBlink(){
-
-if(blinking) return;
-
-blinking = true;
-
-let visible = true;
-
-setInterval(()=>{
-
-preview.style.opacity =
-visible ? "0" : "1";
-
-visible = !visible;
-
-},300);
-
-}
-
-function gradientMode(){
-
-document.body.style.background =
-"linear-gradient(135deg,#ff0000,#00ffcc,#0000ff,#ff00ff)";
-
-}
-
-function fullscreenMode(){
-
-document.documentElement
-.requestFullscreen();
-
-}
-
-updateColor();
 
 </script>
 
 </body>
-  </html>
+</html>
