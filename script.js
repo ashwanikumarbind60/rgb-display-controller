@@ -40,7 +40,21 @@ btn.innerText =
 "Fetching...";
 
 try{
+document.getElementById(
+"loader"
+).style.display = "inline";
 
+document.getElementById(
+"btnText"
+).style.display = "none";
+
+document.getElementById(
+"downloadBtn"
+).disabled = true;
+
+document.getElementById(
+"errorBox"
+).style.display = "none";
 const response = await fetch(
 
 "https://nova-backend-8hc2.onrender.com/download",
