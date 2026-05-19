@@ -318,17 +318,23 @@ transform:scale(1.05);
 
 display:none;
 
+.result{
+
 max-width:1100px;
 
 margin:70px auto;
 
 padding:20px;
 
+display:flex;
+justify-content:center;
+
 }
 
 .result-card{
 
-display:flex;
+display:none;
+
 flex-wrap:wrap;
 
 gap:25px;
@@ -613,5 +619,100 @@ video{
 width:100%;
 
 border-radius:25px;
+
+}
+.result-card{
+
+animation:fadeUp 0.5s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(0);
+
+}
+
+}
+@media(max-width:768px){
+
+.video-box video{
+
+max-height:300px;
+
+object-fit:cover;
+
+}
+
+.thumb{
+
+max-height:250px;
+
+object-fit:cover;
+
+}
+
+.download-btn{
+
+font-size:15px;
+
+padding:15px;
+
+}
+
+}
+#downloadBtn{
+
+min-width:170px;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+#downloadBtn:disabled{
+
+opacity:0.7;
+
+cursor:not-allowed;
+
+}
+
+#btnLoader{
+
+font-weight:600;
+
+animation:pulse 1s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+opacity:0.5;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:0.5;
+}
 
 }
