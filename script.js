@@ -26,6 +26,12 @@ return;
 
 }
 
+const toast =
+document.getElementById(
+"toast");
+
+toast.style.display = "block";
+
 const btn =
 document.getElementById(
 "downloadBtn");
@@ -35,12 +41,24 @@ btn.innerText =
 
 setTimeout(()=>{
 
+toast.style.display = "none";
+
 btn.innerText =
 "Download";
 
 document.getElementById(
 "result").style.display =
 "block";
+
+document.getElementById(
+"videoTitle").innerText =
+
+"Instagram Reel Downloaded";
+
+document.getElementById(
+"videoInfo").innerText =
+
+"HD Quality • MP4 • Audio Supported • Ready to Download";
 
 window.scrollTo({
 
@@ -52,6 +70,6 @@ behavior:"smooth"
 
 });
 
-},2000);
+},2500);
 
 }
