@@ -121,7 +121,11 @@ id="thumbnail"
 src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
 class="thumb">
 
-<video controls id="videoPlayer">
+<video
+controls
+id="videoPlayer"
+playsinline
+controlsList="nodownload">
 
 <source src=
 "https://www.w3schools.com/html/mov_bbb.mp4"
@@ -144,19 +148,41 @@ HD Quality • MP4 • Audio Supported
 </p>
 
 <button class="download-btn">
+<button
+class="download-btn"
+id="videoDownloadBtn">
+
 ⬇ Download HD
+
 </button>
 
 <button class="download-btn">
+<button
+class="download-btn"
+id="audioDownloadBtn">
+
 🎵 Download MP3
+
 </button>
 
 <button class="download-btn">
+<button
+class="download-btn"
+id="thumbnailBtn">
+
 🖼 Download Thumbnail
+
+</button>
 </button>
 
 <button class="download-btn">
+<button
+class="download-btn"
+id="copyBtn">
+
 📋 Copy Link
+
+</button>
 </button>
 
 </div>
