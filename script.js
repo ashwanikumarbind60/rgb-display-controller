@@ -10,7 +10,7 @@ document.getElementById(
 
 };
 
-function fakeLoading(){
+async function fakeLoading(){
 
 const input =
 document.getElementById(
@@ -39,7 +39,33 @@ document.getElementById(
 btn.innerText =
 "Fetching...";
 
-setTimeout(()=>{
+try{
+
+const response = await fetch(
+
+"https://nova-backend-8hc2.onrender.com/download",
+
+{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/json"
+},
+
+body:JSON.stringify({
+
+url:input
+
+})
+
+}
+
+);
+
+const data =
+await response.json();
 
 toast.style.display = "none";
 
@@ -51,14 +77,25 @@ document.getElementById(
 "block";
 
 document.getElementById(
-"videoTitle").innerText =
+"thumbnail").src =
+data.thumbnail;
 
-"Instagram Reel Downloaded";
+document.getElementById(
+"videoTitle").innerText =
+data.title;
 
 document.getElementById(
 "videoInfo").innerText =
 
-"HD Quality • MP4 • Audio Supported • Ready to Download";
+"HD Quality • MP4 • Audio Supported • Ready";
+
+document.querySelector(
+"video source"
+).src = data.video;
+
+document.querySelector(
+"video"
+).load();
 
 window.scrollTo({
 
@@ -70,6 +107,14 @@ behavior:"smooth"
 
 });
 
-},2500);
+}catch(error){
+
+alert(
+"Server Error"
+);
+
+console.log(error);
+
+}
 
 }
