@@ -87,8 +87,8 @@ btn.innerText =
 "Download";
 
 document.getElementById(
-"result").style.display =
-"block";
+"resultBox").style.display =
+"flex";
 
 document.getElementById(
 "thumbnail").src =
