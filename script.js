@@ -96,6 +96,61 @@ document.querySelector(
 document.querySelector(
 "video"
 ).load();
+document.getElementById(
+"videoDownloadBtn"
+).onclick = ()=>{
+
+const a =
+document.createElement("a");
+
+a.href = data.video;
+
+a.download =
+data.title + ".mp4";
+
+a.click();
+
+};
+
+document.getElementById(
+"thumbnailBtn"
+).onclick = ()=>{
+
+const a =
+document.createElement("a");
+
+a.href = data.thumbnail;
+
+a.download =
+"thumbnail.jpg";
+
+a.click();
+
+};
+
+document.getElementById(
+"copyBtn"
+).onclick = ()=>{
+
+navigator.clipboard.writeText(
+input
+);
+
+alert(
+"Link copied"
+);
+
+};
+
+document.getElementById(
+"audioDownloadBtn"
+).onclick = ()=>{
+
+alert(
+"MP3 conversion coming soon"
+);
+
+};
 
 window.scrollTo({
 
