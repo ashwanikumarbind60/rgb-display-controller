@@ -1,204 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>NovaDownloader</title>
+  <title>NovaDownloader</title>
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="loader" id="pageLoader">
-<div class="spinner"></div>
-</div>
+  <!-- BACKGROUND -->
 
-<div class="bg-animation">
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-</div>
+  <div class="bg-animation">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
 
-<header>
+  <!-- HEADER -->
 
-<div class="logo">
-NovaDownloader
-</div>
+  <header>
 
-<nav class="nav">
-<a href="#">Home</a>
-<a href="#">Features</a>
-<a href="#">Download</a>
-<a href="#">Contact</a>
-</nav>
+    <div class="logo">
+      NovaDownloader
+    </div>
 
-</header>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Features</a>
+      <a href="#">Download</a>
+      <a href="#">Contact</a>
+    </nav>
 
-<section class="hero">
+  </header>
 
-<h1>
-Download Instagram
-<span class="gradient">Reels</span>
-In Seconds
-</h1>
+  <!-- HERO -->
 
-<p>
-Ultra-fast Instagram downloader with premium experience.
-</p>
+  <section class="hero">
 
-<div class="search-box">
+    <h1>
+      Download Instagram
+      <span class="gradient">Reels</span>
+      In Seconds
+    </h1>
 
-<input
-type="text"
-placeholder="Paste Instagram Reel Link..."
-id="urlInput">
+    <p>
+      Ultra-fast Instagram downloader with premium experience.
+    </p>
 
-<button id="downloadBtn">
-<span id="btnText">Download</span>
-<span id="btnLoader" style="display:none;">Loading...</span>
-</button>
+    <!-- SEARCH -->
 
-</div>
+    <div class="search-box">
 
-<div class="toast" id="toast">
-Fetching Instagram Data...
-</div>
+      <input
+        type="text"
+        id="urlInput"
+        placeholder="Paste Instagram Reel Link..." />
 
-</section>
+      <button id="downloadBtn">
 
-<section class="result" id="resultSection">
+        <span id="btnText">
+          Download
+        </span>
 
-<div class="result-card">
+        <span id="btnLoader" style="display:none;">
+          Loading...
+        </span>
 
-<div class="video-box">
+      </button>
 
-<img
-id="thumbnail"
-class="thumb"
-src="">
+    </div>
 
-<video
-controls
-playsinline
-id="videoPlayer">
+    <!-- TOAST -->
 
-<source id="videoSource" src="" type="video/mp4">
+    <div class="toast" id="toast">
+      Fetching Instagram Data...
+    </div>
 
-</video>
+  </section>
 
-</div>
+  <!-- RESULT -->
 
-<div class="download-box">
+  <section
+    class="result"
+    id="resultSection">
 
-<h2 id="videoTitle">
-Instagram Reel
-</h2>
+    <div class="result-card">
 
-<p id="videoInfo">
-HD Quality • MP4 • Audio Supported
-</p>
+      <!-- LEFT -->
 
-<button
-class="download-btn"
-id="videoDownloadBtn">
+      <div class="video-box">
 
-⬇ Download HD
+        <img
+          id="thumbnail"
+          class="thumb"
+          src=""
+          alt="thumbnail">
 
-</button>
+        <video
+          id="videoPlayer"
+          controls
+          playsinline>
 
-<button
-class="download-btn"
-id="audioDownloadBtn">
+          <source
+            id="videoSource"
+            src=""
+            type="video/mp4">
 
-🎵 Download MP3
+        </video>
 
-</button>
+      </div>
 
-<button
-class="download-btn"
-id="thumbnailBtn">
+      <!-- RIGHT -->
 
-🖼 Download Thumbnail
+      <div class="download-box">
 
-</button>
+        <h2 id="videoTitle">
+          Instagram Reel
+        </h2>
 
-<button
-class="download-btn"
-id="copyBtn">
+        <p id="videoInfo">
+          HD Quality • MP4 • Audio Supported
+        </p>
 
-📋 Copy Link
+        <button
+          class="download-btn"
+          id="videoDownloadBtn">
 
-</button>
+          ⬇ Download HD
 
-</div>
+        </button>
 
-</div>
+        <button
+          class="download-btn"
+          id="audioDownloadBtn">
 
-</section>
+          🎵 Download MP3
 
-<section class="features">
+        </button>
 
-<div class="feature">
+        <button
+          class="download-btn"
+          id="thumbnailBtn">
 
-<h2>⚡ Fast Speed</h2>
+          🖼 Download Thumbnail
 
-<p>
-Lightning fast downloading system optimized for mobile.
-</p>
+        </button>
 
-</div>
+        <button
+          class="download-btn"
+          id="copyBtn">
 
-<div class="feature">
+          📋 Copy Link
 
-<h2>🎬 HD Quality</h2>
+        </button>
 
-<p>
-Download reels and videos in original HD quality.
-</p>
+      </div>
 
-</div>
+    </div>
 
-<div class="feature">
+  </section>
 
-<h2>📱 Responsive</h2>
+  <!-- FEATURES -->
 
-<p>
-Perfect experience across all devices and screens.
-</p>
+  <section class="features">
 
-</div>
+    <div class="feature">
+      <h2>⚡ Fast Speed</h2>
 
-<div class="feature">
+      <p>
+        Lightning fast downloading system optimized for mobile.
+      </p>
+    </div>
 
-<h2>🔒 Secure</h2>
+    <div class="feature">
+      <h2>🎬 HD Quality</h2>
 
-<p>
-No login required. Safe and secure service.
-</p>
+      <p>
+        Download reels and videos in original HD quality.
+      </p>
+    </div>
 
-</div>
+    <div class="feature">
+      <h2>📱 Responsive</h2>
 
-</section>
+      <p>
+        Perfect experience across all devices and screens.
+      </p>
+    </div>
 
-<footer>
+    <div class="feature">
+      <h2>🔒 Secure</h2>
 
-<div class="footer-logo">
-NovaDownloader
-</div>
+      <p>
+        No login required. Safe and secure service.
+      </p>
+    </div>
 
-<p>
-© 2026 All Rights Reserved
-</p>
+  </section>
 
-</footer>
+  <!-- FOOTER -->
 
-<script src="script.js"></script>
+  <footer>
+
+    <div class="footer-logo">
+      NovaDownloader
+    </div>
+
+    <p>
+      © 2026 All Rights Reserved
+    </p>
+
+  </footer>
+
+  <script src="script.js"></script>
 
 </body>
+
 </html>
