@@ -1,196 +1,74 @@
-const downloadBtn =
-document.getElementById("downloadBtn");
+const express = require("express");
+const cors = require("cors");
+const axios = require("axios");
 
-const urlInput =
-document.getElementById("urlInput");
+const app = express();
 
-const toast =
-document.getElementById("toast");
+app.use(cors());
 
-const resultSection =
-document.getElementById("resultSection");
+app.get("/", (req, res) => {
+  res.send("Nova Backend Running");
+});
 
-const videoPlayer =
-document.getElementById("videoPlayer");
+app.get("/download", async (req, res) => {
 
-const videoSource =
-document.getElementById("videoSource");
+  const url = req.query.url;
 
-const thumbnail =
-document.getElementById("thumbnail");
+  if (!url) {
+    return res.json({
+      success: false,
+      message: "No URL"
+    });
+  }
 
-const videoTitle =
-document.getElementById("videoTitle");
+  try {
 
-const videoDownloadBtn =
-document.getElementById("videoDownloadBtn");
+    const api =
+      `https://instagram-scraper-api2.p.rapidapi.com/v1/post_info?code_or_id_or_url=${encodeURIComponent(url)}`;
 
-const audioDownloadBtn =
-document.getElementById("audioDownloadBtn");
+    const response = await axios.get(api, {
+      headers: {
+        "X-RapidAPI-Key": "PASTE_YOUR_RAPIDAPI_KEY",
+        "X-RapidAPI-Host":
+          "instagram-scraper-api2.p.rapidapi.com"
+      }
+    });
 
-const thumbnailBtn =
-document.getElementById("thumbnailBtn");
+    const data = response.data.data;
 
-const copyBtn =
-document.getElementById("copyBtn");
+    res.json({
+      success: true,
 
-const btnText =
-document.getElementById("btnText");
+      title:
+        data.caption?.text ||
+        "Instagram Reel",
 
-const btnLoader =
-document.getElementById("btnLoader");
+      thumbnail:
+        data.thumbnail_url,
 
-/* PAGE LOADER */
+      video:
+        data.video_url,
 
-window.addEventListener("load",()=>{
+      audio:
+        data.video_url
+    });
 
-document.getElementById(
-"pageLoader"
-).style.display="none";
+  } catch (error) {
+
+    console.log(error.message);
+
+    res.json({
+      success: false,
+      message: "Server Error"
+    });
+
+  }
 
 });
 
-/* DOWNLOAD BUTTON */
+const PORT =
+process.env.PORT || 3000;
 
-downloadBtn.addEventListener(
-"click",
-async()=>{
-
-const reelUrl =
-urlInput.value.trim();
-
-if(!reelUrl){
-
-alert(
-"Paste Instagram Reel Link"
-);
-
-return;
-
-}
-
-/* LOADING */
-
-btnText.style.display="none";
-
-btnLoader.style.display="inline";
-
-toast.style.display="block";
-
-/* API FETCH */
-
-try{
-
-const response =
-await fetch(
-"https://nova-backend-8hc2.onrender.com/download?url="
-+
-encodeURIComponent(reelUrl)
-);
-
-const data =
-await response.json();
-
-/* LOADING HIDE */
-
-btnText.style.display="inline";
-
-btnLoader.style.display="none";
-
-toast.style.display="none";
-
-/* RESULT */
-
-if(data.success){
-
-resultSection.style.display=
-"block";
-
-/* TITLE */
-
-videoTitle.innerText =
-data.title ||
-"Instagram Reel";
-
-/* THUMBNAIL */
-
-thumbnail.src =
-data.thumbnail;
-
-/* VIDEO */
-
-videoSource.src =
-data.video;
-
-videoPlayer.load();
-
-/* DOWNLOAD VIDEO */
-
-videoDownloadBtn.onclick =
-()=>{
-
-window.open(
-data.video,
-"_blank"
-);
-
-};
-
-/* DOWNLOAD AUDIO */
-
-audioDownloadBtn.onclick =
-()=>{
-
-window.open(
-data.audio,
-"_blank"
-);
-
-};
-
-/* DOWNLOAD THUMBNAIL */
-
-thumbnailBtn.onclick =
-()=>{
-
-window.open(
-data.thumbnail,
-"_blank"
-);
-
-};
-
-/* COPY LINK */
-
-copyBtn.onclick =
-()=>{
-
-navigator.clipboard.writeText(
-reelUrl
-);
-
-alert("Link Copied");
-
-};
-
-}else{
-
-alert("Failed to fetch reel");
-
-}
-
-}catch(error){
-
-btnText.style.display="inline";
-
-btnLoader.style.display="none";
-
-toast.style.display="none";
-
-alert("Server Error");
-
-console.log(error);
-
-}
-
+app.listen(PORT, () => {
+  console.log("Server Running");
 });
