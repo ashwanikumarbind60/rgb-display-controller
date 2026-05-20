@@ -1,189 +1,196 @@
-window.onload = ()=>{
+const downloadBtn =
+document.getElementById("downloadBtn");
 
-setTimeout(()=>{
+const urlInput =
+document.getElementById("urlInput");
+
+const toast =
+document.getElementById("toast");
+
+const resultSection =
+document.getElementById("resultSection");
+
+const videoPlayer =
+document.getElementById("videoPlayer");
+
+const videoSource =
+document.getElementById("videoSource");
+
+const thumbnail =
+document.getElementById("thumbnail");
+
+const videoTitle =
+document.getElementById("videoTitle");
+
+const videoDownloadBtn =
+document.getElementById("videoDownloadBtn");
+
+const audioDownloadBtn =
+document.getElementById("audioDownloadBtn");
+
+const thumbnailBtn =
+document.getElementById("thumbnailBtn");
+
+const copyBtn =
+document.getElementById("copyBtn");
+
+const btnText =
+document.getElementById("btnText");
+
+const btnLoader =
+document.getElementById("btnLoader");
+
+/* PAGE LOADER */
+
+window.addEventListener("load",()=>{
 
 document.getElementById(
-"loader").style.display =
-"none";
+"pageLoader"
+).style.display="none";
 
-},1500);
+});
 
-};
+/* DOWNLOAD BUTTON */
 
-async function fakeLoading(){
+downloadBtn.addEventListener(
+"click",
+async()=>{
 
-const input =
-document.getElementById(
-"urlInput").value;
+const reelUrl =
+urlInput.value.trim();
 
-if(input === ""){
+if(!reelUrl){
 
 alert(
-"Please paste Instagram link"
+"Paste Instagram Reel Link"
 );
 
 return;
 
 }
 
-const toast =
-document.getElementById(
-"toast");
+/* LOADING */
 
-toast.style.display = "block";
+btnText.style.display="none";
 
-const btn =
-document.getElementById(
-"downloadBtn");
+btnLoader.style.display="inline";
 
-btn.innerText =
-"Fetching...";
+toast.style.display="block";
+
+/* API FETCH */
 
 try{
-document.getElementById(
-"loader"
-).style.display = "inline";
 
-document.getElementById(
-"btnText"
-).style.display = "none";
-
-document.getElementById(
-"downloadBtn"
-).disabled = true;
-
-document.getElementById(
-"errorBox"
-).style.display = "none";
-const response = await fetch(
-
-"https://nova-backend-8hc2.onrender.com/download",
-
-{
-
-method:"POST",
-
-headers:{
-"Content-Type":
-"application/json"
-},
-
-body:JSON.stringify({
-
-url:input
-
-})
-
-}
-
+const response =
+await fetch(
+"https://nova-backend-8hc2.onrender.com/download?url="
++
+encodeURIComponent(reelUrl)
 );
 
 const data =
 await response.json();
 
-toast.style.display = "none";
+/* LOADING HIDE */
 
-btn.innerText =
-"Download";
+btnText.style.display="inline";
 
-document.getElementById(
-"resultBox").style.display =
-"flex";
+btnLoader.style.display="none";
 
-document.getElementById(
-"thumbnail").src =
+toast.style.display="none";
+
+/* RESULT */
+
+if(data.success){
+
+resultSection.style.display=
+"block";
+
+/* TITLE */
+
+videoTitle.innerText =
+data.title ||
+"Instagram Reel";
+
+/* THUMBNAIL */
+
+thumbnail.src =
 data.thumbnail;
 
-document.getElementById(
-"videoTitle").innerText =
-data.title;
+/* VIDEO */
 
-document.getElementById(
-"videoInfo").innerText =
+videoSource.src =
+data.video;
 
-"HD Quality • MP4 • Audio Supported • Ready";
+videoPlayer.load();
 
-document.querySelector(
-"video source"
-).src = data.video;
+/* DOWNLOAD VIDEO */
 
-document.querySelector(
-"video"
-).load();
-document.getElementById(
-"videoDownloadBtn"
-).onclick = ()=>{
+videoDownloadBtn.onclick =
+()=>{
 
-const a =
-document.createElement("a");
-
-a.href = data.video;
-
-a.download =
-data.title + ".mp4";
-
-a.click();
+window.open(
+data.video,
+"_blank"
+);
 
 };
 
-document.getElementById(
-"thumbnailBtn"
-).onclick = ()=>{
+/* DOWNLOAD AUDIO */
 
-const a =
-document.createElement("a");
+audioDownloadBtn.onclick =
+()=>{
 
-a.href = data.thumbnail;
-
-a.download =
-"thumbnail.jpg";
-
-a.click();
+window.open(
+data.audio,
+"_blank"
+);
 
 };
 
-document.getElementById(
-"copyBtn"
-).onclick = ()=>{
+/* DOWNLOAD THUMBNAIL */
+
+thumbnailBtn.onclick =
+()=>{
+
+window.open(
+data.thumbnail,
+"_blank"
+);
+
+};
+
+/* COPY LINK */
+
+copyBtn.onclick =
+()=>{
 
 navigator.clipboard.writeText(
-input
+reelUrl
 );
 
-alert(
-"Link copied"
-);
+alert("Link Copied");
 
 };
 
-document.getElementById(
-"audioDownloadBtn"
-).onclick = ()=>{
+}else{
 
-alert(
-"MP3 conversion coming soon"
-);
+alert("Failed to fetch reel");
 
-};
-
-window.scrollTo({
-
-top:
-document.getElementById(
-"result").offsetTop,
-
-behavior:"smooth"
-
-});
+}
 
 }catch(error){
 
-alert(
-"Server Error"
-);
+btnText.style.display="inline";
+
+btnLoader.style.display="none";
+
+toast.style.display="none";
+
+alert("Server Error");
 
 console.log(error);
 
 }
 
-}
+});
