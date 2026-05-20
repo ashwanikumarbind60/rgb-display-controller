@@ -28,7 +28,7 @@ app.get("/download", async (req, res) => {
 
     const response = await axios.get(api, {
       headers: {
-        "X-RapidAPI-Key": "PASTE_YOUR_RAPIDAPI_KEY",
+        "X-RapidAPI-Key": "24c94668edmshc1372e2efd40e57p1e6680jsnaad2ea980ecf",
         "X-RapidAPI-Host":
           "instagram-scraper-api2.p.rapidapi.com"
       }
