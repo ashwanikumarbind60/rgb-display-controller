@@ -1,39 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width,
-initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>NovaDownloader</title>
 
-<link rel="stylesheet"
-href="style.css">
+<link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
 
 <body>
 
-<div class="loader" id="loader">
-
+<div class="loader" id="pageLoader">
 <div class="spinner"></div>
-
 </div>
 
 <div class="bg-animation">
-
 <span></span>
 <span></span>
 <span></span>
 <span></span>
 <span></span>
-
 </div>
 
 <header>
@@ -43,23 +32,10 @@ NovaDownloader
 </div>
 
 <nav class="nav">
-
-<a href="#">
-Home
-</a>
-
-<a href="#">
-Features
-</a>
-
-<a href="#">
-Download
-</a>
-
-<a href="#">
-Contact
-</a>
-
+<a href="#">Home</a>
+<a href="#">Features</a>
+<a href="#">Download</a>
+<a href="#">Contact</a>
 </nav>
 
 </header>
@@ -67,21 +43,13 @@ Contact
 <section class="hero">
 
 <h1>
-
 Download Instagram
-<span class="gradient">
-Reels
-</span>
-
+<span class="gradient">Reels</span>
 In Seconds
-
 </h1>
 
 <p>
-
-Ultra-fast Instagram downloader
-with premium experience.
-
+Ultra-fast Instagram downloader with premium experience.
 </p>
 
 <div class="search-box">
@@ -91,68 +59,36 @@ type="text"
 placeholder="Paste Instagram Reel Link..."
 id="urlInput">
 
-<button
-id="downloadBtn">
-
-<span id="btnText">
-Download
-</span>
-
-<span
-id="btnLoader"
-style="display:none;">
-
-Loading...
-
-</span>
-
+<button id="downloadBtn">
+<span id="btnText">Download</span>
+<span id="btnLoader" style="display:none;">Loading...</span>
 </button>
 
 </div>
 
-<div
-class="toast"
-id="toast">
-
+<div class="toast" id="toast">
 Fetching Instagram Data...
-
-</div>
 </div>
 
 </section>
-class="result-card"
-id="resultBox"
-style="display:none;">
-<div
-id="errorBox"
-style="
-display:none;
-color:red;
-text-align:center;
-margin-top:20px;
-font-weight:bold;
-">
 
-Failed to fetch reel
+<section class="result" id="resultSection">
 
-</div>
+<div class="result-card">
 
 <div class="video-box">
 
 <img
 id="thumbnail"
-src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-class="thumb">
+class="thumb"
+src="">
 
 <video
 controls
-id="videoPlayer"
 playsinline
-controlsList="nodownload">
+id="videoPlayer">
 
-<source src=
-"https://www.w3schools.com/html/mov_bbb.mp4"
-type="video/mp4">
+<source id="videoSource" src="" type="video/mp4">
 
 </video>
 
@@ -165,11 +101,8 @@ Instagram Reel
 </h2>
 
 <p id="videoInfo">
-
 HD Quality • MP4 • Audio Supported
-
 </p>
-
 
 <button
 class="download-btn"
@@ -177,11 +110,15 @@ id="videoDownloadBtn">
 
 ⬇ Download HD
 
+</button>
+
 <button
 class="download-btn"
 id="audioDownloadBtn">
 
 🎵 Download MP3
+
+</button>
 
 <button
 class="download-btn"
@@ -189,6 +126,7 @@ id="thumbnailBtn">
 
 🖼 Download Thumbnail
 
+</button>
 
 <button
 class="download-btn"
@@ -208,60 +146,40 @@ id="copyBtn">
 
 <div class="feature">
 
-<h2>
-⚡ Fast Speed
-</h2>
+<h2>⚡ Fast Speed</h2>
 
 <p>
-
-Lightning fast downloading
-system optimized for mobile.
-
+Lightning fast downloading system optimized for mobile.
 </p>
 
 </div>
 
 <div class="feature">
 
-<h2>
-🎬 HD Quality
-</h2>
+<h2>🎬 HD Quality</h2>
 
 <p>
-
-Download reels and videos
-in original HD quality.
-
+Download reels and videos in original HD quality.
 </p>
 
 </div>
 
 <div class="feature">
 
-<h2>
-📱 Responsive
-</h2>
+<h2>📱 Responsive</h2>
 
 <p>
-
-Perfect experience across
-all devices and screens.
-
+Perfect experience across all devices and screens.
 </p>
 
 </div>
 
 <div class="feature">
 
-<h2>
-🔒 Secure
-</h2>
+<h2>🔒 Secure</h2>
 
 <p>
-
-No login required.
-Safe and secure service.
-
+No login required. Safe and secure service.
 </p>
 
 </div>
@@ -275,15 +193,12 @@ NovaDownloader
 </div>
 
 <p>
-
 © 2026 All Rights Reserved
-
 </p>
 
 </footer>
 
-<script src="script.js">
-</script>
+<script src="script.js"></script>
 
 </body>
-  </html>
+</html>
